@@ -1,4 +1,4 @@
-from database.db import votes, candidates
+from database.db import votes
 
 
 def count(data):

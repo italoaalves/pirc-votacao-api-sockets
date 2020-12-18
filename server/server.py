@@ -14,6 +14,7 @@ serv = (HOST, PORT)
 sock.bind(serv)
 sock.listen(50)
 
+
 options = {
     "vote": vote,
     "count": count
