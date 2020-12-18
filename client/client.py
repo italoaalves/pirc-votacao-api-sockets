@@ -39,9 +39,12 @@ if __name__ == "__main__":
 
             if response:
                 break
-
-        for candidate, votes in json.loads(response.decode()).items():
-            print(f'Candidato: {candidate}: {votes} votos')
-        input("ENTER para continuar")
+        response = json.loads(response.decode())
+        if "status" in response:
+            print(response)
+        else:
+            for candidate, votes in response.items():
+                print(f'Candidato: {candidate}: {votes} votos')
+            input("ENTER para continuar")
 
     sock.close()
