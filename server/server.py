@@ -6,7 +6,7 @@ from methods.vote import vote
 from methods.count import count
 
 HOST = '0.0.0.0'
-PORT = 40000
+PORT = 40001
 TAM_MSG = 1024
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -27,7 +27,7 @@ def Con_cliente(con, cliente):
 
         response = options[str(request["header"]["method"])](request["body"])
 
-        sock.sendall(str.encode(response))
+        con.send(str.encode(json.dumps(response)))
 
 
 if __name__ == "__main__":

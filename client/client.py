@@ -8,7 +8,7 @@ from views.voter.vote import vote
 options = [quit, vote, count]
 
 HOST = '127.0.0.1'
-PORT = 40000
+PORT = 40001
 TAM_MSG = 1024
 
 serv = (HOST, PORT)
@@ -37,9 +37,10 @@ if __name__ == "__main__":
         while True:
             response = sock.recv(TAM_MSG)
 
-            if not response:
+            if response:
                 break
 
-            print(response)
+        print(response)
+        input("ENTER para continuar")
 
     sock.close()
