@@ -8,7 +8,7 @@ from views.voter.vote import vote
 options = [quit, vote, count]
 
 HOST = '127.0.0.1'
-PORT = 40001
+PORT = 40000
 TAM_MSG = 1024
 
 serv = (HOST, PORT)
@@ -40,7 +40,8 @@ if __name__ == "__main__":
             if response:
                 break
 
-        print(response)
+        for candidate, votes in json.loads(response.decode()).items():
+            print(f'Candidato: {candidate}: {votes} votos')
         input("ENTER para continuar")
 
     sock.close()

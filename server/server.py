@@ -6,7 +6,7 @@ from methods.vote import vote
 from methods.count import count
 
 HOST = '0.0.0.0'
-PORT = 40001
+PORT = 40000
 TAM_MSG = 1024
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
