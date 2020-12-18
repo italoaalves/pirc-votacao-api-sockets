@@ -1,10 +1,7 @@
-from model.vote import Vote
-from database import db
+from database.db import votes
 
 
 def vote(data):
-    vote = Vote(data["voter"], data["cadidate"])
+    votes.insert(data)
 
-    
-        db.votes.insert(vote)
-
+    return "success"

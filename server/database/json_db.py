@@ -5,12 +5,9 @@ class JsonDB():
     def __init__(self, path):
         self.path = path
 
-        with open(self.path, 'w') as file:
-            file.write("[]")
-
     def _read_db(self):
         with open(self.path, 'r') as file:
-            return json.loads(file)
+            return json.loads(file.read())
 
     def _write_db(self, context):
         with open(self.path, 'w') as file:
@@ -22,7 +19,7 @@ class JsonDB():
 
         objects.append(data)
 
-       self._write_db(objects)
+        self._write_db(objects)
 
     def find_all(self):
         return self._read_db()
@@ -31,10 +28,3 @@ class JsonDB():
         objects = self._read_db()
 
         return objects[id]
-
-    def update(self, id, data):
-        objects = self._read_db()
-
-
-    def delete(self, id):
-        pass

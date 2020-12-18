@@ -1,7 +1,11 @@
 import socket
+import json
 from os import system, name
 
-options = [quit, ]
+from views.voter.count import count
+from views.voter.vote import vote
+
+options = [quit, vote, count]
 
 HOST = '127.0.0.1'
 PORT = 40000
@@ -28,6 +32,14 @@ if __name__ == "__main__":
         system('cls' if name == 'nt' else 'clear')
         request = options[opt]()
 
-        sock.send(str.encode(request))
+        sock.send(str.encode(json.dumps(request)))
+
+        while True:
+            response = sock.recv(TAM_MSG)
+
+            if not response:
+                break
+
+            print(response)
 
     sock.close()
