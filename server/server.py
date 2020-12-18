@@ -1,6 +1,8 @@
 import socket
 import threading
+import json
 
+from methods import vote, count
 
 HOST = '0.0.0.0'
 PORT = 40000
@@ -15,15 +17,18 @@ sock.listen(50)
 def Con_cliente(con, cliente):
     while True:
         request = con.recv(TAM_MSG)
+        request = json.loads(request.decode())
 
-        # methods[request["method"](request["data"])]
-        print(cliente, request.decode())
+        response = methods[request["method"](request["body"])]
 
 
-while True:
-    try:
-        con, cliente = sock.accept()
-    except:
-        break
-    threading.Thread(target=Con_cliente, args=(con, cliente)).start()
-con.close()
+if __name__ == "__main__":
+
+   while True:
+        try:
+            con, cliente = sock.accept()
+        except:
+            break
+        threading.Thread(target=Con_cliente, args=(con, cliente)).start()
+
+    con.close()

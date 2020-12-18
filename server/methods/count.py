@@ -1,0 +1,2 @@
+def count(data):
+    pass
