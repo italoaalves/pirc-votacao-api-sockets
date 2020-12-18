@@ -5,8 +5,6 @@ from os import system, name
 from views.voter.count import count
 from views.voter.vote import vote
 
-options = [quit, vote, count]
-
 HOST = '127.0.0.1'
 PORT = 40000
 TAM_MSG = 1024
@@ -14,6 +12,9 @@ TAM_MSG = 1024
 serv = (HOST, PORT)
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.connect(serv)
+
+
+options = [quit, vote, count]
 
 
 if __name__ == "__main__":
