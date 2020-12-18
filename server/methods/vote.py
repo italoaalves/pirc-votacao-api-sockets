@@ -3,8 +3,8 @@ from database import db
 
 
 def vote(data):
-    vote = Vote(data["voter"], data["cadidate"])
+    vote = Vote(data["voter"], data["candidate"])
 
-    
-        db.votes.insert(vote)
+    db.votes.insert(vote)
 
+    return "success"
