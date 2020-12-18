@@ -31,6 +31,7 @@ if __name__ == "__main__":
         opt = int(input('> '))
 
         system('cls' if name == 'nt' else 'clear')
+
         request = options[opt]()
 
         sock.send(str.encode(json.dumps(request)))
@@ -40,7 +41,9 @@ if __name__ == "__main__":
 
             if response:
                 break
+
         response = json.loads(response.decode())
+
         if "status" in response:
             print(response)
         else:

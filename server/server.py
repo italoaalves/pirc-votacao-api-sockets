@@ -22,11 +22,19 @@ options = {
 
 
 def Con_cliente(con, cliente):
+    print("cliente conectado ", cliente)
+
     while True:
         request = con.recv(TAM_MSG)
         request = json.loads(request.decode())
 
-        response = options[str(request["header"]["method"])](request["body"])
+        method = request["header"]["method"]
+        data = request["body"]
+
+        response = options[str(method)](data)
+
+        if request["header"]["method"] == "vote":
+            print(f'Voto para o candidato {request["body"]["candidate"]} Registrado' if response["status"] == "success" else "Falha")
 
         con.send(str.encode(json.dumps(response)))
 
