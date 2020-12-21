@@ -21,7 +21,7 @@ options = {
 }
 
 
-def Con_cliente(con, cliente):
+def con_cliente(con, cliente):
     print("cliente conectado ", cliente)
 
     while True:
@@ -46,6 +46,6 @@ if __name__ == "__main__":
         except:
             break
 
-        threading.Thread(target=Con_cliente, args=(con, cliente)).start()
+        threading.Thread(target=con_cliente, args=(con, cliente)).start()
 
     con.close()
