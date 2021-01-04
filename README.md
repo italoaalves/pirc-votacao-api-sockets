@@ -1,7 +1,7 @@
 # Projeto da disciplina de Protocolos de Interconexão de Redes de Computadores
 Aplicação cliente/servidor usando API de Sockets e um protocolo de aplicação.
 ## Proposta
-Optamos por desenvolver uma aplicação de votações utilizando um protocolo de aplicação próprio inpirado no http.
+Optamos por desenvolver uma aplicação de votações utilizando um protocolo de aplicação próprio inspirado no http.
 ## Especificação do projeto
 O projeto constará do desenvolvimento de um aplicativo distribuído em uma arquitetura cliente/servidor, implementado com base na API de Sockets, o qual deverá usar um protocolo de aplicação para realizar a comunicação, de forma padronizada, entre os módulos do sistema.
 
